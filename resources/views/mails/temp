@@ -1,0 +1,13 @@
+<tr style="border-bottom:1px solid #e5e5e5;">
+                <td style="padding-left:10px;">
+                    <p style="margin-bottom:2px">{{$item->name}}</p>
+                    <small style="color: #FABE4C">{{$item->note}}</small>
+                </td>
+                <td style="text-align:center;">
+                    {{$item->quantity}}
+                </td>
+                <td style="text-align:center;">
+                    {{$item->pack}}
+                </td>
+
+            </tr>
