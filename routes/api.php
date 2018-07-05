@@ -135,17 +135,23 @@ Route::delete('itemsnote/{id}', ['uses' => 'ItemNoteController@deleteItemNote', 
 
 /// ACCOUNT 
 
-Route::post('accounts', ['uses' => 'AccountController@postAccount', 'middleware' => 'auth.jwt', 'middleware' => 'auth.jwt']);
+Route::post('accounts', ['uses' => 'AccountController@postAccount', 'middleware' => 'auth.jwt']);
 
-Route::put('accounts', ['uses' => 'AccountController@putAccount', 'middleware' => 'auth.jwt', 'middleware' => 'auth.jwt']);
+Route::put('accounts', ['uses' => 'AccountController@putAccount', 'middleware' => 'auth.jwt']);
 
-Route::get('accounts', ['uses' => 'AccountController@getAccount', 'middleware' => 'auth.jwt', 'middleware' => 'auth.jwt']);
+Route::get('accounts', ['uses' => 'AccountController@getAccount', 'middleware' => 'auth.jwt']);
 
 /// EMAILS
 
 Route::get('accountactivation/{id}', ['uses' => 'UserController@userActivation']);
 
 
+//// COMPARE PRICE
 
+Route::post('compare', ['uses' => 'CompareController@compare', 'middleware' => 'auth.jwt']);
+
+Route::get('getprice/{id}', ['uses' => 'CompareController@getPrice']);
+
+Route::post('sendprice', ['uses' => 'CompareController@sendPrice']);
     
     

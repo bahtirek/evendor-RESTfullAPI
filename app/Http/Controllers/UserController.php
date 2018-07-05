@@ -39,20 +39,20 @@ class UserController extends Controller{
         
         $user->save();
         
-        $hash = $this->getHash();
+        $hash = $this->getHash($user->email);
         
         DB::table('users_activation')->insert(['user_id' => $user->id, 'hash' => $hash]);
         
         
-        Mail::to('jeff@gmail.com')->send(new FoodConn_Activation($hash));
+        Mail::to($user->email)->send(new FoodConn_Activation($hash));
         
         return response()->json(['message' => $hash], 201);
         
         
     }
     
-    public function getHash(){
-        $hash = Hash::make('email');
+    public function getHash($email){
+        $hash = Hash::make($email);
         $hash = preg_replace('/[^A-Za-z0-9]/', '', $hash);
         $count = DB::table('users_activation')->where('hash', '=', $hash)->count();
         if($count > 0) $this->getHash();

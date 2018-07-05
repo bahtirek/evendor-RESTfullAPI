@@ -7,20 +7,18 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class FoodConn_Activation extends Mailable
+class Price_Confirmed extends Mailable
 {
     use Queueable, SerializesModels;
-    
-    public $hash = '';
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($hash)
+    public function __construct()
     {
-        $this->hash = $hash;
+        //
     }
 
     /**
@@ -30,6 +28,6 @@ class FoodConn_Activation extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.activation');
+        return $this->view('view.name');
     }
 }

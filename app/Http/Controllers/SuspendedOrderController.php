@@ -17,7 +17,7 @@ class SuspendedOrderController extends Controller
         $user = JWTAuth::parseToken()->toUser();
         
         $order = DB::table('suspended_order')
-            ->select('quantity AS q', 'item_id AS i', 'pack AS p', 'vendor_id AS v', DB::raw('DATE(`date`) AS date'))
+            ->select('quantity', 'item_id AS id', 'pack', 'vendor_id AS vendor', DB::raw('DATE(`date`) AS date'))
             ->where('user_id', '=', $user->id)
             ->get();
             

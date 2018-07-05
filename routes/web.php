@@ -1,6 +1,5 @@
 <?php
 
-use App\Mail\FoodConn_Activation;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +14,6 @@ use App\Mail\FoodConn_Activation;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('import', 'ExcelController@import');
+Route::get('downloadExcel/{type}', 'ExcelController@downloadExcel');
+Route::post('importExcel', 'ExcelController@importExcel');
